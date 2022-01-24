@@ -1,15 +1,14 @@
+global:
+  resolve_timeout: 2m
 route:
-  receiver: "webhook1"
-  group_wait: 30s
-  group_interval: 5m
-  repeat_interval: 4h
-  group_by: [backend_b, service_status, api]
+  receiver: "PrometheusAlert"
+  group_by: [...]
   routes:
     - receiver: "webhook1"
       group_interval: 10s
       group_wait: 30s
       group_by: [nodeExt1]
-      repeat_interval: 60m
+      repeat_interval: 2m
       match:
         team: backend_b
         type: service_status
@@ -17,11 +16,14 @@ route:
       group_interval: 10s
       group_wait: 30s
       group_by: [nodeExt2]
-      repeat_interval: 60m
+      repeat_interval: 2m
       match:
         team: backend_b
         type: service_status
 receivers:
+  - name: 'PrometheusAlert'
+    webhook_configs:
+      - url: 'http://prometheus-alert.infwaves.com/prometheusalert?type=fs&tpl=prometheus-fs'
   - name: "webhook1"
     webhook_configs:
-      - url: "http://aws003.infwaves.com:28080/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=https://open.feishu.cn/open-apis/bot/v2/hook/68bfab90-2eab-4b5e-9577-4f7b549f4fbe"
+      - url: "http://prometheus-alert.infwaves.com/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=${你的飞书webhook地址}"
