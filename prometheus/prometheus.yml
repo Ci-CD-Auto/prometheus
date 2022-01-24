@@ -60,8 +60,8 @@ scrape_configs:
           - "tasks.node-exporter"
         type: "A"
         port: 9100
-  - job_name: "prometheus-upm"
+  - job_name: "b-prometheus"
     scrape_interval: 5s
-    metrics_path: "/admin/actuator/prometheus"
+    metrics_path: "/actuator/prometheus"
     static_configs:
-      - targets: ["aws003.infwaves.com:9999"]
+      - targets: ["aws004.infwaves.com:9999/admin", "aws004.infwaves.com:9999/auth", "aws004.infwaves.com:9999/gateway", "aws004.infwaves.com:9999/product", "aws004.infwaves.com:9999/channel", "aws004.infwaves.com:9999/product_analysis", "aws004.infwaves.com:9999/bi", "aws004.infwaves.com:9999/coupon-code-service", "aws004.infwaves.com:9999/B-pricing", "aws004.infwaves.com:9999/base", "aws004.infwaves.com:9999/crm"]
