@@ -1,22 +1,27 @@
 groups:
-- name: example
-  rules:
-
-  # Alert for any instance that is unreachable for >2 minutes.
+- name: b_service_activity_status
+  rules: 
   - alert: service_down
     expr: up == 0
-    for: 2m
+    for: 1m
     labels:
-      severity: page
+      severity: P0
+      level: P0
+      team: backend_b
+      type: service_status
     annotations:
       summary: "Instance {{ $labels.instance }} down"
-      description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 2 minutes."
+      description: "{{ $labels.instance }} of service {{ $labels.task_name }} has been down for more than 1 minutes."
 
-  - alert: high_load
-    expr: node_load1 > 0.5
-    for: 2m
+- name: b_api_status
+  rules:
+  - alert: api_request_failed
+    expr: sum(rate(http_server_requests_seconds_count{application="{{ $labels.application }}", instance="{{ $labels.instance }}", status="5.."}[1m])) > 1
     labels:
-      severity: page
+      severity: P1
+      level: P1
+      team: backend_b
+      type: api
     annotations:
-      summary: "Instance {{ $labels.instance }} under high load"
-      description: "{{ $labels.instance }} of job {{ $labels.job }} is under high load."
+      description: "{{ $labels.application }} {{ $labels.method }}:{{ $labels.uri }} of {{ $labels.task_name }} has a request fail, code is {{ $labels.code }}"
+      summary: "api request failed on {{ $labels.method }}:{{ $labels.uri }} of {{ $labels.task_name }}, code is {{ $labels.code }}"

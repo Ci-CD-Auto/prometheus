@@ -1,10 +1,27 @@
 route:
-  receiver: 'slack'
-
+  receiver: "webhook1"
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+  group_by: [backend_b, service_status, api]
+  routes:
+    - receiver: "webhook1"
+      group_interval: 10s
+      group_wait: 30s
+      group_by: [nodeExt1]
+      repeat_interval: 60m
+      match:
+        team: backend_b
+        type: service_status
+    - receiver: "webhook1"
+      group_interval: 10s
+      group_wait: 30s
+      group_by: [nodeExt2]
+      repeat_interval: 60m
+      match:
+        team: backend_b
+        type: service_status
 receivers:
-  - name: 'slack'
-#       slack_configs:
-#           - send_resolved: true
-#             username: '<username>'
-#             channel: '#<channel-name>'
-#             api_url: '<incomming-webhook-url>'
+  - name: "webhook1"
+    webhook_configs:
+      - url: "http://aws003.infwaves.com:28080/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=https://open.feishu.cn/open-apis/bot/v2/hook/68bfab90-2eab-4b5e-9577-4f7b549f4fbe"

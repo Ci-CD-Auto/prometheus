@@ -2,6 +2,8 @@
 
 # Contents
 
+[prometheus-book](https://yunlzheng.gitbook.io/prometheus-book/)
+
 - Introduction
   - [Overview](#a-prometheus--grafana-docker-compose-stack)
   - [Pre-requisites](#pre-requisites)
