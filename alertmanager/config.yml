@@ -1,7 +1,7 @@
 global:
   resolve_timeout: 2m
 route:
-  receiver: "PrometheusAlert"
+  receiver: "defaultAlert"
   group_by: [...]
   routes:
     - receiver: "webhook1"
@@ -11,7 +11,6 @@ route:
       repeat_interval: 2m
       match:
         team: backend_b
-        type: service_status
     - receiver: "webhook1"
       group_interval: 10s
       group_wait: 30s
@@ -19,11 +18,17 @@ route:
       repeat_interval: 2m
       match:
         team: backend_b
-        type: service_status
+    - receiver: "PrometheusAlert"
+      group_by: [nodeExt3]
+      match:
+        team: backend_c
 receivers:
   - name: 'PrometheusAlert'
     webhook_configs:
-      - url: 'http://prometheus-alert.infwaves.com/prometheusalert?type=fs&tpl=prometheus-fs'
-  - name: "webhook1"
+      - url: 'http://${your prometheus altertmanager}/prometheusalert?type=fs'
+  - name: 'webhook1'
     webhook_configs:
-      - url: "http://prometheus-alert.infwaves.com/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=${你的飞书webhook地址}"
+      - url: 'http://${your prometheus altertmanager}/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=https://open.feishu.cn/open-apis/bot/v2/hook/7b21ed0c-d49e-45ff-9f01-c0874027c594'
+  - name: 'defaultAlert'
+    webhook_configs:
+      - url: 'http://${your prometheus altertmanager}/prometheusalert?type=fs&tpl=prometheus-fs&fsurl=https://open.feishu.cn/open-apis/bot/v2/hook/99ea07cd-66f3-4945-a76c-c78ffb261b36'

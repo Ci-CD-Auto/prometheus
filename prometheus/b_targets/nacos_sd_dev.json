@@ -1,0 +1,134 @@
+[
+    {
+        "targets": [
+            "172.31.24.128:8090"
+        ],
+        "labels": {
+            "__meta_gRPC_port": "18080",
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@platform-base",
+            "task_name": "platform-base"
+        }
+    },
+    {
+        "targets": [
+            "172.31.24.128:6101"
+        ],
+        "labels": {
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@erp-bi-analysis",
+            "task_name": "erp-bi-analysis"
+        }
+    },
+    {
+        "targets": [
+            "172.31.24.128:7000"
+        ],
+        "labels": {
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@erp-crm",
+            "task_name": "erp-crm"
+        }
+    },
+    {
+        "targets": [
+            "172.31.24.128:4000"
+        ],
+        "labels": {
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@im-upm",
+            "task_name": "im-upm"
+        }
+    },
+    {
+        "targets": [
+            "172.31.24.128:9999"
+        ],
+        "labels": {
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@im-gateway",
+            "task_name": "im-gateway"
+        }
+    },
+    {
+        "targets": [
+            "172.31.24.128:5102"
+        ],
+        "labels": {
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@coupon-code-service",
+            "task_name": "coupon-code-service"
+        }
+    },
+    {
+        "targets": [
+            "172.31.24.128:5105"
+        ],
+        "labels": {
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@B-pricing",
+            "task_name": "B-pricing"
+        }
+    },
+    {
+        "targets": [
+            "172.31.24.128:8087"
+        ],
+        "labels": {
+            "__meta_gRPC_port": "18087",
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@erp-product",
+            "task_name": "erp-product"
+        }
+    },
+    {
+        "targets": [
+            "172.31.24.128:3100"
+        ],
+        "labels": {
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@im-auth",
+            "task_name": "im-auth"
+        }
+    },
+    {
+        "targets": [
+            "172.31.24.128:5101"
+        ],
+        "labels": {
+            "__meta_nacos_group": "DEFAULT_GROUP",
+            "__meta_nacos_namespace": "e9f58033-802b-440d-b633-e7bdc9b867b4",
+            "__meta_preserved_register_source": "SPRING_CLOUD",
+            "__metrics_path__": "/actuator/prometheus",
+            "job": "DEFAULT_GROUP@@erp-product-analysis",
+            "task_name": "erp-product-analysis"
+        }
+    }
+]
